@@ -25,8 +25,7 @@ def vid2frames(video_path, ratio, frames_path):
 
             cap.release()
             cv2.destroyAllWindows()
-            if(count == 2):
-                break
+            
 
 
 if __name__ == "__main__":
