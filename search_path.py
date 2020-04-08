@@ -19,8 +19,9 @@ def to_float(x):
 
 def compute_dist(x, y):
     x = x[1:]  # remove frame id
-    dx = (x[0]+x[1])/2 - (y[0]+y[1])/2
-    dy = (x[2]+x[3])/2 - (y[2]+y[3])/2
+    # format điểm x (x1,y1,x2,y2)
+    dx = (x[0]+x[2])/2 - (y[0]+y[2])/2
+    dy = (x[1]+x[3])/2 - (y[1]+y[3])/2
     dist = math.sqrt(dx*dx + dy*dy)
     return dist
 
