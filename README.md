@@ -127,4 +127,6 @@ Có 3 tham số có thể tweak, là FRAME_RADIUS, DIST_RADIUS và threshold.
 
 - threshold mang ý nghĩa là score của bbox >= threshold thì mới được chọn giữ lại
 - FRAME_RADIUS là giới hạn tối đa để xét 1 frame nếu như nó không có bbox match, ví dụ FRAME_RADIUS = 10, xét frame 2 vẫn còn đang có bbox match với nó, bỗng dưng lần add frame kế tiếp thì không có bbox nào match, và cứ thế tới 10 lần thì không đem frame 2 để dò match bbox nữa.
-- DIST_RADIUS là bán kính duyệt bbox lân cận, nếu nó quá lớn thì coi như vét trâu, thật ra có thể tùy video để tweak tham số này (ví dụ xe chạy nhanh như cam_14.mp4 thì tăng radius lên sẽ giúp nó giữ track cho đối tượng)
+- DIST_RADIUS là bán kính duyệt bbox lân cận, nếu nó quá lớn thì có thể dẫn đến mỗi frame sẽ đều tìm ra bbox match (do cơ chế tìm match là lấy min < DIST_RADIUS), thật ra có thể tùy video để tweak tham số này sao cho phù hợp (ví dụ xe chạy nhanh như cam_14.mp4 thì tăng radius lên sẽ giúp nó giữ track cho đối tượng)
+
+Ngoài ra về code bên trong phần convert, mình làm 2 task chính là giữ bbox thỏa threshold và lọc bbox trùng (ở ngay chỗ return). Mình cũng đã bỏ tham số score cuối, nếu người dùng muốn giữ thì có thể vào tìm dòng `thay_An_bboxs = thay_An_bboxs[:, :-1]` để xóa/cmt đi. 
