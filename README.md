@@ -80,7 +80,10 @@ for lsd in lstDir:
         # phía dưới phải chỉnh về ./sampled_frames/cam_{}.mp4_fr{}.jpg nếu chạy mặc định code vid2frame.py
         img = './cam_{}/cam_{}.mp4_fr{}.jpg'.format(
             lsd, lsd, imgtmp+1)
-
+            # ....
+            # Chỗ này thì kiểm tra coi tồn tại font này không, nếu không phải kiếm font đắp vô, có thể hệ điều hành mình không có font này.
+            font = ImageFont.truetype(
+                '/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', 30)
 
 # rename_for_fmpeg.py
 # chỗ này nếu được có thể refactor code gọn, nhưng ý tưởng là ghi path mà đã lưu bộ ảnh
