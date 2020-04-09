@@ -41,6 +41,7 @@ for lsd in lstDir:
 
             font = ImageFont.truetype(
                 '/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', 30)
+            # Nếu đang giữ score thì bên dưới là -3 chứ không phải -2
             draw.text((bbxs[0], bbxs[1]-30), '{}_{}'.format(dic_type[bbxs[-2]],str(
                 bbxs[-1])), (0, 255, 0), font=font)
         source_img.save(
