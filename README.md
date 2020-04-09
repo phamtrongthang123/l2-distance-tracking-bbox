@@ -120,6 +120,9 @@ do
 done
 ```
 
+## Muốn giữ predicted label
+Dùng 2 file trong thư mục insert_predicted_label thay thế cho 2 file ngoài. Ý tưởng chỉ là insert thêm phần tử thôi, do code gấp nên mình chia làm 2 file. Refactor gộp lại cũng được. Ngoài ra nếu muốn giữ score thì buộc phải vào draw.py (trong thư mục lúc nãy) sửa chỗ gán tên lên bbox từ -2 thành -3, mình có comment chỗ đó để mọi người dễ kiếm, mở file sẽ thấy.
+
 ## Tweak kết quả tracking
 
 Source quan trọng nhất là `search_path.py`.
